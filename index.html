@@ -1,1 +1,237 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM COMPROMISE DETECTED</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            animation: pulse 2s infinite;
+        }
+        
+        .finger-v-sign {
+            font-size: 10rem;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            margin-bottom: 2rem;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            line-height: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .warning-text {
+            background-color: rgba(255, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-left: 5px solid #ff0000;
+            margin-bottom: 2rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+        
+        .countdown {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        
+        .instructions {
+            text-align: left;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .instructions ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .contact {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #bbb;
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+        }
+        
+        .scanning-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(to right, transparent, #ff0000, transparent);
+            animation: scan 3s linear infinite;
+            z-index: 1;
+        }
+        
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+        
+        .binary-digit {
+            position: absolute;
+            color: #0f0;
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.5);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        @media (max-width: 768px) {
+            .finger-v-sign {
+                font-size: 6rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .countdown {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanning-line"></div>
+    <div class="binary-rain" id="binaryRain"></div>
+    
+    <div class="container">
+        <div class="finger-v-sign">✌️</div>
+        <h1>SYSTEM COMPROMISE DETECTED</h1>
+        
+        <div class="warning-text">
+            <p>WARNING: Your system has been infiltrated by Finger-V breach protocol. Critical data extraction in progress.</p>
+        </div>
+        
+        <div class="countdown" id="countdown">
+            Data extraction completion in: <span id="timer">04:20</span>
+        </div>
+        
+        <div class="instructions">
+            <p>Your network security has been compromised. Immediate action is required:</p>
+            <ol>
+                <li>Disconnect from the network immediately to prevent further data loss</li>
+                <li>Do not attempt to stop this process - system integrity may be compromised</li>
+                <li>Contact your system administrator immediately</li>
+                <li>Do not restart your computer - this may cause permanent data loss</li>
+            </ol>
+        </div>
+        
+        <div class="contact">
+            <p>If this is an error, contact IT Security immediately at security@yourcompany.com or call 555-0123</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                
+                display.textContent = minutes + ":" + seconds;
+                
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            const fourMinutesTwenty = 60 * 4 + 20;
+            const display = document.querySelector('#timer');
+            startTimer(fourMinutesTwenty, display);
+            
+            // Create binary rain effect
+            const binaryRain = document.getElementById('binaryRain');
+            for (let i = 0; i < 50; i++) {
+                createBinaryDigit();
+            }
+            
+            function createBinaryDigit() {
+                const digit = document.createElement('div');
+                digit.classList.add('binary-digit');
+                digit.textContent = Math.random() > 0.5 ? '1' : '0';
+                digit.style.left = Math.random() * 100 + 'vw';
+                digit.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                digit.style.opacity = Math.random();
+                binaryRain.appendChild(digit);
+                
+                // Remove digit after animation completes and create a new one
+                setTimeout(() => {
+                    digit.remove();
+                    createBinaryDigit();
+                }, parseFloat(digit.style.animationDuration) * 1000);
+            }
+        };
+    </script>
+</body>
+</html>
