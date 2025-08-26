@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM COMPROMISE DETECTED</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -33,13 +32,42 @@
             animation: pulse 2s infinite;
         }
         
-        .finger-v-sign {
-            font-size: 10rem;
-            color: #ff0000;
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        .v-sign-container {
             margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .v-sign {
+            width: 180px;
+            height: 180px;
+            position: relative;
             animation: glow 1.5s ease-in-out infinite alternate;
-            line-height: 1;
+        }
+        
+        .v-sign::before,
+        .v-sign::after {
+            content: '';
+            position: absolute;
+            background-color: #ff0000;
+            width: 30px;
+            border-radius: 15px;
+        }
+        
+        .v-sign::before {
+            height: 150px;
+            transform: rotate(45deg);
+            left: 55px;
+            top: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        }
+        
+        .v-sign::after {
+            height: 150px;
+            transform: rotate(-45deg);
+            right: 55px;
+            top: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
         }
         
         h1 {
@@ -117,10 +145,10 @@
         
         @keyframes glow {
             from {
-                text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+                filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
             }
             to {
-                text-shadow: 0 0 30px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.5);
+                filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.9));
             }
         }
         
@@ -141,8 +169,27 @@
         }
         
         @media (max-width: 768px) {
-            .finger-v-sign {
-                font-size: 6rem;
+            .v-sign {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .v-sign::before,
+            .v-sign::after {
+                width: 20px;
+                border-radius: 10px;
+            }
+            
+            .v-sign::before {
+                height: 100px;
+                left: 35px;
+                top: 10px;
+            }
+            
+            .v-sign::after {
+                height: 100px;
+                right: 35px;
+                top: 10px;
             }
             
             h1 {
@@ -160,11 +207,13 @@
     <div class="binary-rain" id="binaryRain"></div>
     
     <div class="container">
-        <div class="finger-v-sign">✌️</div>
+        <div class="v-sign-container">
+            <div class="v-sign"></div>
+        </div>
         <h1>SYSTEM COMPROMISE DETECTED</h1>
         
         <div class="warning-text">
-            <p>WARNING: Your system has been infiltrated by Finger-V breach protocol. Critical data extraction in progress.</p>
+            <p>WARNING: Your system has been infiltrated by V-Security breach protocol. Critical data extraction in progress.</p>
         </div>
         
         <div class="countdown" id="countdown">
