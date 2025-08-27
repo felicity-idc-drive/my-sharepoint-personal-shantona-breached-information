@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le@ked D@t@b@se Summary</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .alert-container {
+            background: linear-gradient(135deg, #ff4d4d, #ff9999); /* Cool gradient background */
+            border: 3px solid #cc0000;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: slideIn 0.5s ease-out; /* Subtle slide-in animation */
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .alert-container h1 {
+            color: #fff;
+            font-size: 28px;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .alert-container .warning-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .alert-container p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #fff;
+            margin: 12px 0;
+        }
+        .alert-container strong {
+            color: #ffe680; /* Bright yellow for emphasis */
+            font-weight: bold;
+        }
+        .alert-container .cta {
+            display: inline-block;
+            background-color: #fff;
+            color: #cc0000;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .alert-container .cta:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -34,19 +89,21 @@
 
 <body>
     <div class="alert-container">
-        <h1>Urgent Security Alert: Compromised Credentials Detected</h1>
+        <div class="warning-icon">⚠️</div>
+        <h1>Critical Alert: Your Credentials Are at Risk!</h1>
         <p>Dear Sir,</p>
-        <p>We have identified <strong>breached credentials linked to your corporate and personal email accounts</strong> on DarkWeb forums. While some accounts may no longer be active, our analysis indicates that the compromised passwords follow <strong>similar patterns or combinations</strong>, posing significant risks. <strong>Reusing passwords or using slightly modified versions across accounts is a serious security concern.</strong></p>
-        <p>Please <strong>immediately review</strong> whether you are using these passwords or any similar/guessable variations. If so, we urge you to <strong>change them immediately</strong> and enable <strong>Multi-Factor Authentication (MFA)</strong> wherever possible. Bad actors can analyze, predict, and exploit these credentials in numerous ways, potentially at any time.</p>
-        <p>These findings also raise concerns about potential <strong>corporate email breaches (BEC)</strong>, including risks of <strong>Whaling, Spear Phishing, or other impersonation attacks</strong>. Such vulnerabilities may stem from compromised websites, ERP/CRM systems, or other technology deployments, potentially linking to further breaches.</p>
-        <p><strong>Action Required:</strong> Review the attached reports and images below for details. For any questions or concerns, please <a href="mailto:support@example.com" class="cta">Contact Us Immediately</a>.</p>
+        <p>I am writing to inform you that, some <strong>breached credentials linked to your corporate and personal email accounts</strong> have been identified in DarkWeb forums. I can understand that some may no longer be active, but our analysis & understanding shows that the <strong>compromised / harvested passwords follow similar patterns or combinations</strong> over time cause risks (<strong>! Repetition of same password or slightly change passwords in different account is now a days serious RED flag</strong>).</p>
+        <p>Please check if you are using these passwords or anything <strong>similar/close/guessable</strong>!. If so, I kindly urge you to <strong>change them</strong> and use or enable <strong>MFA</strong> immediately where applicable; as bad actors could analyze, predict and exploit them in uncountable ways any time later or soon.</p>
+        <p>Additionally, such findings create scope of <strong>corporate email breaches (BEC/Whaling/Spear Phishing/ various impersonation forms..)</strong> may stem from vulnerabilities in websites or our ERP/CRM’s, other technology deployments, potentially linking to other compromised information through BEC (Business email compromise) /impersonation attacks / Spear Phishing.</p>
+        <p>Kindly review the reports. Please feel free to Contact Us Immediately with questions or any concerns.</p>
     </div>
+
     <h2>Leaked Database Summary</h2>
     <table>
         <thead>
             <tr>
-                <th>Leaked Database Name and Logo</th>
-                <th>Database Date</th>
+                <th>Le@ked D@t@b@se Name and Logo</th>
+                <th>D@t@b@se Date</th>
                 <th>Email</th>
                 <th>P@ssW0rd</th>
                 <th>Infection Link</th>
@@ -557,6 +614,5 @@
             </tr>
         </tbody>
     </table>
-    
 </body>
 </html>
