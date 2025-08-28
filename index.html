@@ -18,21 +18,30 @@
       background-color: #000;
       color: #fff;
       min-height: 100vh;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 10px) calc(env(safe-area-inset-bottom) + 10px) calc(env(safe-area-inset-left) + 10px);
+      text-align: center;
+      flex-direction: column;
+      padding: calc(env(safe-area-inset-top, 10px) + 10px)
+               calc(env(safe-area-inset-right, 10px) + 10px)
+               calc(env(safe-area-inset-bottom, 10px) + 10px)
+               calc(env(safe-area-inset-left, 10px) + 10px);
       overflow-x: hidden;
       position: relative;
     }
 
     .container {
-      text-align: center;
-      z-index: 10;
-      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s infinite ease-in-out;
       max-width: 90%;
       width: 100%;
-      animation: pulse 2s infinite ease-in-out;
+      padding: 1.5rem;
+      z-index: 10;
     }
 
     .icon-container {
@@ -41,13 +50,14 @@
       justify-content: center;
     }
 
-    .sad-icon {
+    .warning-icon {
       width: 100px;
       height: 100px;
       max-width: 30vw;
       max-height: 30vw;
       animation: glow 1.5s ease-in-out infinite alternate;
-      filter: saturate(2) brightness(1.2) drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+      filter: saturate(2) brightness(1.2) drop-shadow(0 0 8px rgba(255, 0, 0, 0.7));
+      fill: #FF0000;
     }
 
     h1 {
@@ -57,6 +67,7 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       line-height: 1.2;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
     }
 
     .warning-text {
@@ -65,11 +76,13 @@
       border-left: 3px solid #ff0000;
       text-align: left;
       line-height: 1.5;
-      color: #ff0000;
+      color: #ff5555;
       font-size: 0.9rem;
       font-weight: 600;
       border-radius: 4px;
       margin-bottom: 1rem;
+      max-width: 600px;
+      width: 100%;
     }
 
     .disclaimer {
@@ -82,6 +95,8 @@
       font-size: 0.85rem;
       line-height: 1.4;
       text-align: left;
+      max-width: 600px;
+      width: 100%;
     }
 
     .disclaimer svg {
@@ -97,6 +112,8 @@
       flex-direction: column;
       gap: 0.8rem;
       align-items: center;
+      max-width: 300px;
+      width: 100%;
     }
 
     .link-button {
@@ -104,13 +121,12 @@
       padding: 0.8rem 1.2rem;
       background-color: rgba(255, 0, 0, 0.2);
       border: 1px solid #ff0000;
-      color: #ff0000;
+      color: #ff5555;
       text-decoration: none;
       font-weight: 600;
       border-radius: 6px;
       font-size: 0.9rem;
       width: 100%;
-      max-width: 300px;
       text-align: center;
       transition: background-color 0.3s, color 0.3s, transform 0.2s;
       touch-action: manipulation;
@@ -144,17 +160,18 @@
 
     .binary-digit {
       position: absolute;
-      color: #0f0;
+      color: #f00;
       font-size: 0.8rem;
       animation: fall linear infinite;
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
     }
 
     @keyframes glow {
       from {
-        filter: saturate(2) brightness(1.2) drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+        filter: saturate(2) brightness(1.2) drop-shadow(0 0 8px rgba(255, 0, 0, 0.7));
       }
       to {
-        filter: saturate(2) brightness(1.3) drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+        filter: saturate(2) brightness(1.3) drop-shadow(0 0 20px rgba(255, 0, 0, 1));
       }
     }
 
@@ -203,7 +220,7 @@
         padding: 0.7rem;
       }
 
-      .sad-icon {
+      .warning-icon {
         width: 80px;
         height: 80px;
       }
@@ -231,7 +248,7 @@
         font-size: 0.75rem;
       }
 
-      .sad-icon {
+      .warning-icon {
         width: 60px;
         height: 60px;
       }
@@ -249,16 +266,13 @@
 
   <div class="container">
     <div class="icon-container">
-      <!-- Sad Face Icon -->
-      <svg class="sad-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-        <circle cx="64" cy="64" r="60" fill="#ff0000"/>
-        <circle cx="44" cy="50" r="8" fill="#000"/>
-        <circle cx="84" cy="50" r="8" fill="#000"/>
-        <path d="M44,90 C60,70 84,90 84,90" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <!-- Warning Triangle Icon -->
+      <svg class="warning-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Warning icon" role="img" >
+        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
       </svg>
     </div>
 
-    <h1>Sir! You Have Been Breached</h1>
+    <h1>SIR! YOU HAVE BEEN BREACHED</h1>
 
     <div class="warning-text">
       <p><strong>WARNING:</strong> Data extraction has been completed. We have your session now.</p>
@@ -267,16 +281,13 @@
     </div>
 
     <div class="disclaimer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm7 2a1 1 0 0 1 1 1v8a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1z"/>
-      </svg>
-      <strong>DISCLAIMER:</strong> This process of information gathering, hunting, and validating is solely for <strong>awareness building</strong>. It demonstrates a glimpse of real-time information collected while you interact with seemingly harmless pages, links, or images in emails. 😊<br><br>
+      <strong>DISCLAIMER:</strong> This process of information gathering, hunting, and validating is solely for <strong>awareness building</strong>. It demonstrates a glimpse of real-time information collected while you interact with seemingly harmless pages, links, or images in emails.<br><br>
       — <strong>Felicity SOCaaS TEAM</strong>
     </div>
 
     <div class="links-container">
-      <a href="https://felicity-idc-drive.github.io/my-sharepoint-personal-shantona-breached-information/real-rep/personal.html" class="link-button">View Personal Breached Identities & Passwords</a>
-      <a href="https://felicity-idc-drive.github.io/my-sharepoint-personal-shantona-breached-information/real-rep/corp-rep.html" class="link-button">View Corporate Breached Identities & Passwords</a>
+      <a href="https://felicity-idc-drive.github.io/my-sharepoint-personal-shantona-breached-information/real-rep/personal.html" class="link-button" target="_blank" rel="noopener noreferrer">View Personal Breached Identities & Passwords</a>
+      <a href="https://felicity-idc-drive.github.io/my-sharepoint-personal-shantona-breached-information/real-rep/corp-rep.html" class="link-button" target="_blank" rel="noopener noreferrer">View Corporate Breached Identities & Passwords</a>
     </div>
   </div>
 
@@ -295,8 +306,8 @@
         digit.classList.add('binary-digit');
         digit.textContent = Math.random() > 0.5 ? '1' : '0';
         digit.style.left = Math.random() * 100 + 'vw';
-        digit.style.animationDuration = (Math.random() * 4 + 2) + 's'; // Faster fall on mobile
-        digit.style.opacity = Math.random() * 0.3 + 0.1; // Lower opacity for subtlety
+        digit.style.animationDuration = (Math.random() * 4 + 2) + 's'; 
+        digit.style.opacity = Math.random() * 0.3 + 0.1;
         binaryRain.appendChild(digit);
 
         setTimeout(() => {
